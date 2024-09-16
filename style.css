@@ -34,11 +34,32 @@ nav {
     background-color: #0056a2;
 }
 
+nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-brand h1 {
+    color: white;
+    margin: 0;
+}
+
+#nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
+    align-items: center;
     padding: 0;
+    margin: 0;
 }
 
 nav li {
@@ -53,7 +74,8 @@ nav a {
     font-weight: 500;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active {
     border-bottom: 2px solid #ffd700;
 }
 
@@ -74,6 +96,32 @@ section h3 {
 
 section p {
     line-height: 1.6;
+}
+
+/* Back-to-Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background-color: #0056a2;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#back-to-top:hover {
+    background-color: #003f7f;
 }
 
 /* Footer */
@@ -103,12 +151,33 @@ footer a:hover {
         font-size: 2.5em;
     }
 
+    /* Mobile Navigation Adjustments */
+    #nav-toggle {
+        display: block;
+    }
+
     nav ul {
+        display: none;
         flex-direction: column;
-        align-items: center;
+        background-color: #0056a2;
+        width: 100%;
+    }
+
+    nav ul.show {
+        display: flex;
     }
 
     nav li {
-        margin: 10px 0;
+        margin: 15px 0;
     }
+}
+
+/* Smooth Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Active Navigation Link Style */
+nav a.active {
+    border-bottom: 2px solid #ffd700;
 }
